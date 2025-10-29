@@ -1,0 +1,111 @@
+﻿:root {
+    /* Responsive spacing scale */
+    --space-xs: clamp(4px, 0.5vw, 8px);
+    --space-sm: clamp(8px, 1vw, 16px);
+    --space-md: clamp(16px, 2vw, 32px);
+    --space-lg: clamp(32px, 4vw, 64px);
+    --space-xl: clamp(64px, 6vw, 128px);
+    /* Grid system */
+    --container-max: 1280px;
+    --grid-gap: clamp(12px, 2vw, 24px);
+    --grid-margin: clamp(40px, 4vw, 80px);
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: auto;
+}
+
+/* ========== HEADER COMPONENT ========== */
+header {
+    height: 10%;
+    width: 100%;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--space-lg);
+}
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+    padding: var(--space-sm) var(--space-md);
+    gap: var(--space-lg);
+}
+
+.logo-img {
+    height: 70%;
+    object-fit: contain;
+}
+
+/* MENU */
+.header-menu {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-md);
+}
+
+.menu-list {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-lg);
+    list-style: none;
+}
+
+.tag-list {
+    text-decoration: none;
+    font-size: clamp(16px, 2vw, 32px);
+    font-weight: bold;
+    color: black;
+}
+
+.menu-search {
+    border-radius: 50px;
+    padding: 0 var(--space-sm);
+    outline: none; 
+    border: 1px solid #ccc;
+}
+
+/* ========== APP COMPONENT ========== */
+.app-container {
+    flex: 1;
+    width: 100%;
+    background-color: wheat;
+    padding: var(--space-lg);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--grid-gap);
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--grid-margin);
+}
+
+
+/* ========== FOOTER COMPONENT ========== */
+footer {
+    height: 20%;
+    width: 100%;
+    background-color: black;
+}
+
+/* ========== RESPONSIVE GRID ========== */
+@media (max-width: 768px) {
+    .app-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
