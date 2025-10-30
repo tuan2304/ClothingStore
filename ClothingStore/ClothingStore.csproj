@@ -10,6 +10,7 @@
     <Folder Include="Views\Cart\" />
     <Folder Include="Views\Login\" />
     <Folder Include="Views\Products\" />
+    <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
 </Project>
