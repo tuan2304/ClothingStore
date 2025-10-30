@@ -13,27 +13,30 @@
 <body>
     <header>
         <div class="header-container">
-                <img  class="logo-img" src="~/img/logo.png" alt="Logo" />
+            <a asp-controller="Home" asp-action="Index"><img class="logo-img" src="~/img/logo.webp" alt="Logo" /></a>
                 <div class="header-menu">
                     <ul class="menu-list">
                         <li class="list">
-                            <a class="tag-list" href="#">Áo</a>
+                        <a class="tag-list" asp-controller="Products" asp-action="Shirts">Áo</a>
                         </li>
                         <li class="list">
-                            <a class="tag-list" href="#">Quần</a>
+                        <a class="tag-list" asp-controller="Products" asp-action="Pants">Quần</a>
                         </li>
                         <li class="list">
-                            <a class="tag-list" href="#">Phụ Kiện</a>
+                        <a class="tag-list" asp-controller="Products" asp-action="Accessories">Phụ Kiện</a>
                         </li>
                     </ul>
-                    <input  class ="menu-search" type="search"  placeholder="Tìm kiếm sản phẩm" name="search" value="" />
+                <div class="search-wrapper">
+                    <span id="icon-search" class="material-symbols-outlined">search</span>
+                    <input id="menu-search" class="menu-search" type="search" placeholder="Tìm kiếm sản phẩm..." name="search" value="" />
+                </div>
                 </div>
                 <div class="header-chose">
-                <div class="cart">
+                <a asp-controller="Cart" asp-action="Index" class="cart">
                     <span class="material-symbols-outlined">
                         shopping_cart
                     </span>
-                </div>
+                </a>
                     <button class="Login"> Login</button>
                 </div>
           

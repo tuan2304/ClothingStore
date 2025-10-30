@@ -1,4 +1,6 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const iconSearch = document.getElementById('icon-search');
+const menuSearch = document.getElementById('menu-search');
 
-// Write your JavaScript code.
+iconSearch.addEventListener('click', () => {
+    menuSearch.focus(); 
+});

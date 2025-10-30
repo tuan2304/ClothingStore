@@ -6,25 +6,34 @@
     --space-lg: clamp(32px, 4vw, 64px);
     --space-xl: clamp(64px, 6vw, 128px);
     /* Grid system */
-    --container-max: 1280px;
+    --container-max: 1440px;
     --grid-gap: clamp(12px, 2vw, 24px);
     --grid-margin: clamp(40px, 4vw, 80px);
     /*Design tokens*/
-    --color-primary: #84994F;
-    --color-secondary: #FFE797;
-    --color-accent: #FCB53B;
-    --color-surface: #A72703;
-    --color-on-primary: #000000;
-    --color-on-secondary: #FFFFFF;
-    --color-on-surface: #0BA6DF;
-    --color-on-accent: #FFFFFF;
-    /*hover*/
-    --color-primary-hover: #d9651b;
-    --color-secondary-hover: #f48b00;
-    --color-surface-hover: #EBEBEB;
-    --color-accent-hover: #fa9a1e;
-    --color-on-surface-hover: #EF7722;
-    --color-on-accent-hover: #EBEBEB;
+
+    /* PRIMARY - màu chính (xám đậm nhất) */
+    --color-primary: #595959;
+    --color-primary-hover: #4d4d4d;
+    --color-on-primary: #ffffff;
+    --color-on-primary-hover: #e6e6e6;
+    /* SECONDARY - màu phụ (xám trung bình) */
+    --color-secondary: #7f7f7f;
+    --color-secondary-hover: #6f6f6f;
+    --color-on-secondary: #ffffff;
+    --color-on-secondary-hover: #eaeaea;
+    /* ACCENT - điểm nhấn (xám sáng) */
+    --color-accent: #a5a5a5;
+    --color-accent-hover: #959595;
+    --color-on-accent: #1a1a1a;
+    --color-on-accent-hover: #000000;
+    /* SURFACE - nền giao diện */
+    --color-surface: #cccccc;
+    --color-surface-hover: #bfbfbf;
+    --color-on-surface: #1a1a1a;
+    --color-on-surface-hover: #000000;
+    /* FEEDBACK STATES */
+    --color-error: #d32f2f;
+    --color-success: #388e3c;
 }
 
 /* RESET */
@@ -47,7 +56,7 @@ header {
     height: auto;
     max-height: 92px;
     width: 100%;
-    background-color: var(--color-surface);
+    background-color: var(--color-primary);
     display: flex;
     align-items: center;
     padding: 0 var(--space-lg);
@@ -69,17 +78,16 @@ header::after{
 }
 
 .logo-img {
-    height: auto;
-    width: 200px;
-    object-fit: cover;
-    display: block;
+    max-height: 80px; 
+    width: auto; 
+    object-fit: contain;
 }
 
 /* MENU */
 .header-menu {
     display: flex;
     flex-direction: row;
-    gap: var(--space-md);
+    gap: var(--space-lg);
     align-items: center
 }
 
@@ -94,17 +102,42 @@ header::after{
     text-decoration: none;
     font-size: clamp(16px, 2vw, 22px);
     font-weight: bold;
-    color: var(--color-on-surface);
+    color: var(--color-on-primary);
+    transition: transform .2s;
+    display: inline-block; 
+    transform-origin: center; 
+    will-change: transform; 
+    position: relative;
+    z-index: 1;
+}
+.tag-list:hover {
+        color: var(--color-on-primary-hover);
+        transform: scale(1.25);
+        z-index: 10;
 }
 
-.menu-search {
+.search-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0 var(--space-xs);
+    font-size: clamp(8px,2vw,16px);
+    padding: 0 var(--space-sm);
+    border: 2px solid var(--color-on-secondary);
     border-radius: 50px;
-    width: clamp(300px, 2vw, 600px);
+    background-color:white;
+    cursor: pointer
+}
+
+
+.menu-search {
+   
+    width: clamp(400px, 2vw, 600px);
     height: clamp(40px, 1vh, 140px);
-    padding: 0 var(--space-md);
     font-size: clamp(8px,2vw,16px);
     outline: none;
-    border: 1px solid #ccc;
+    border: none;
+    
 }
 .header-chose{
     display: flex;
@@ -113,9 +146,23 @@ header::after{
     align-items: center;
 }
 .cart .material-symbols-outlined {
-    font-size: clamp(32px, 4.5vh, 96px);
-    align-items: center
+    font-size: clamp(32px, 3vh, 96px);
+    align-items: center;
+    cursor: pointer;
+    color: var(--color-on-primary);
+    transition: transform .2s;
+    display: inline-block;
+    transform-origin: center;
+    will-change: transform;
+    position: relative;
+    z-index: 1
 }
+    .cart .material-symbols-outlined:hover {
+        color: var(--color-on-primary-hover);
+        transform: scale(1.25);
+        z-index: 10;
+    }
+
 .Login {
     border-radius: 50px;
     width: clamp(100px, 1vw, 200px);
@@ -125,13 +172,13 @@ header::after{
     font-size: clamp(8px,2vw,16px);
     font-weight: bold;
     align-items: center;
-    border: 1px solid var(--color-accent);
-    background-color: var(--color-primary);
-    color: var(--color-on-primary);
+    border: 1px solid var(--color-surface);
+    background-color: var(--color-secondary);
+    color: var(--color-on-secondary);
 }
     .Login:hover {
-        border: 1px solid var(--color-accent-hover);
-        background-color: var(--color-primary-hover);
+        border: 1px solid var(--color-surface-hover);
+        background-color: var(--color-secondary-hover);
     }
 
 /* ========== APP COMPONENT ========== */
@@ -139,12 +186,6 @@ header::after{
     flex: 1;
     width: 100%;
     background-color: wheat;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--grid-gap);
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 var(--grid-margin);
 }
 
 
