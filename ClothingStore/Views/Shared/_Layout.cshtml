@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ClothingStore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,8 +49,62 @@
     </div>
 
     <footer>
-      
+        <div class="footer-container">
+            <div class="footer-col footer-about">
+                <a asp-controller="Home" asp-action="Index"><img class="footer-logo" src="~/img/logo.webp" alt="ClothingStore" /></a>
+                <p class="footer-description">Quality clothing for everyday life.</p>
+            </div>
 
+            <div class="footer-col footer-links">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a asp-controller="Products" asp-action="Shirts">Áo</a></li>
+                    <li><a asp-controller="Products" asp-action="Pants">Quần</a></li>
+                    <li><a asp-controller="Products" asp-action="Accessories">Phụ Kiện</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-support">
+                <h4>Hỗ trợ khách hàng</h4>
+                <ul>
+                    <li><a asp-controller="Home" asp-action="AboutUS">Giới thiệu</a></li>
+                    <li><a asp-controller="Home" asp-action="Privacy">Chính sách bảo mật</a></li>
+                    <li><a asp-controller="Home" asp-action="Index">Dịch vụ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-contract">
+                <h4>Thông tin liện hệ</h4>
+                <div class="contract">
+                    <div class="info">
+                        <span class="material-symbols-outlined">
+                            location_on
+                        </span>
+                        <p>Đà Nẵng</p>
+                    </div>
+                    <div class="info">
+                        <span class="material-symbols-outlined">
+                            mail
+                        </span>
+                        <p>ontop@rayma.vn</p>
+                    </div>
+                    <div class="info">
+                        <span class="material-symbols-outlined">
+                            call
+                        </span>
+                        <p>0901906116</p>
+                    </div>
+                </div>
+                <div class="social">
+                    <a href="#" class="fa fa-facebook social-link"></a>
+                    <a href="#" class="fa fa-instagram social-link"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; @DateTime.Now.Year OnTop. All rights reserved.</p>
+        </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
