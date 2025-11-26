@@ -1,0 +1,80 @@
+﻿@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+   
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/admin/css/asset/css_part/Product/ProductManager.css" asp-append-version="true" />
+}
+<main class="admin-product-manager">
+    <div class="pm-header">
+        <h1>Product Manager</h1>
+
+        <div class="pm-controls">
+            <div class="pm-search">
+                <input  type="search" placeholder="Search products..." aria-label="Search products" />
+            </div>
+
+            <div class="pm-actions">
+                <a class="btn btn-primary" asp-controller="Product" asp-action="CreateProduct">+ Add Product</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="pm-list">
+        <div class="pm-table-wrapper">
+            <table class="pm-table" aria-describedby="product-list">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th class="col-image">Image</th>
+                        <th class="col-name">Name</th>
+                        <th class="col-category">Category</th>
+                        <th class="col-price">Price</th>
+                        <th class="col-stock">Stock</th>
+                        <th class="col-discount">Discount</th>
+                        <th class="col-actions">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list">
+                    <tr>
+                        <td>1</td>
+                        <td class="col-image"><img src="~/images/sample-product.jpg" alt="Sample" /></td>
+                        <td class="col-name">Classic T-Shirt</td>
+                        <td class="col-category">Shirts</td>
+                        <td class="col-price">$19.99</td>
+                        <td class="col-stock">42</td>
+                        <td class="col-discount">42%</td>
+                        <td class="col-actions">
+                            <a class="btn btn-sm" asp-action="EditProduct" asp-controller="Product" asp-route-id="1">Edit</a>
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td class="col-image"><img src="~/images/sample-product-2.jpg" alt="Sample 2" /></td>
+                        <td class="col-name">Denim Jeans</td>
+                        <td class="col-category">Pants</td>
+                        <td class="col-price">$49.00</td>
+                        <td class="col-stock">18</td>
+                        <td class="col-discount">42%</td>
+                        <td class="col-actions">
+                            <a class="btn btn-sm" asp-action="EditProduct" asp-controller="Product" asp-route-id="2">Edit</a>
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                        </td>
+                    </tr>
+ 
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pm-pagination" role="navigation" aria-label="Pagination">
+            <button class="btn btn-sm" disabled>« Prev</button>
+            <span class="page-info">1 / 10</span>
+            <button class="btn btn-sm">Next »</button>
+        </div>
+    </section>
+</main>
+
+

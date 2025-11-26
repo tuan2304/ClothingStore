@@ -1,0 +1,126 @@
+﻿
+.admin-header{
+  background: linear-gradient(180deg, var(--admin-bg), #0b1220);
+  color: var(--admin-text);
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  box-shadow: 0 2px 6px rgba(2,6,23,0.45);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.admin-top{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  min-height: 64px;
+}
+
+.brand{
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  text-decoration: none;
+  color: var(--admin-text);
+  font-family: "Bungee", "Cabin", system-ui, sans-serif;
+}
+
+.admin-nav{
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+.admin-nav a{
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background .15s, color .15s, transform .06s;
+  font-family: "Cabin", system-ui, sans-serif;
+  font-size: 0.95rem;
+}
+.admin-nav a:hover,
+.admin-nav a:focus{
+  background: var(--glass);
+  color: var(--admin-text);
+  outline: none;
+}
+.admin-nav a.active{
+  background: rgba(255,255,255,0.06);
+  color: var(--admin-text);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.02) inset;
+}
+
+.header-actions{
+  display: flex;
+  gap: .6rem;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 220px;
+}
+
+.header-actions .search{
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.04);
+  color: var(--admin-text);
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--radius);
+  min-width: 160px;
+  transition: box-shadow .12s, border-color .12s;
+  font-size: .95rem;
+}
+.header-actions .search::placeholder{ color: rgba(255,255,255,0.45); }
+
+.header-actions a{
+  color: var(--muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: 0.25rem 0.4rem;
+  border-radius: 6px;
+}
+.header-actions a:hover,
+.header-actions a:focus{
+  color: var(--admin-text);
+  background: rgba(255,255,255,0.03);
+}
+
+.admin-nav a:focus,
+.header-actions a:focus,
+.brand:focus,
+.header-actions .search:focus{
+  outline: 3px solid rgba(255,107,107,0.18);
+  outline-offset: 2px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+}
+
+@media (max-width: 820px){
+  .admin-top{
+    flex-direction: column;
+    align-items: stretch;
+    gap: .5rem;
+    padding: .6rem;
+  }
+  .admin-nav{
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: .35rem;
+    padding: .2rem 2px;
+  }
+  .header-actions{
+    justify-content: space-between;
+    gap: .4rem;
+  }
+  .header-actions .search{
+    min-width: 100%;
+    width: 100%;
+  }
+}

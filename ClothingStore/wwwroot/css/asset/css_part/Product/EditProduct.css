@@ -1,0 +1,186 @@
+:root{
+    --ep-bg: var(--admin-bg-alt);
+    --ep-card: rgba(255,255,255,0.02);
+    --ep-accent: var(--admin-accent);
+    --ep-muted: var(--muted);
+    --ep-radius: var(--radius);
+    --ep-max-width: 980px;
+    --ep-gap: 1rem;
+}
+
+.edit-product{
+    max-width: var(--ep-max-width);
+    margin: 1.25rem auto;
+    padding: 1rem;
+}
+.cp-card{
+    background: var(--ep-card);
+    border-radius: var(--ep-radius);
+    padding: 1rem;
+    box-shadow: 0 3px 14px rgba(2,6,23,0.35);
+    color: var(--admin-text);
+}
+
+.cp-card h1{
+    margin: 0 0 0.75rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.cp-form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* grid */
+.cp-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    align-items: start;
+}
+
+/* form controls */
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:.4rem;
+}
+.form-group.full{
+    grid-column: 1 / -1;
+}
+.form-group label{
+    font-size: .85rem;
+    color: var(--ep-muted);
+}
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea{
+    padding:.55rem .7rem;
+    border-radius:6px;
+    border:1px solid rgba(255,255,255,0.06);
+    background: transparent;
+    color: var(--admin-text);
+    outline: none;
+}
+.form-group textarea{
+    resize: vertical;
+    min-height: 96px;
+}
+
+/* Hide native number spinners */
+.form-group input[type="number"]::-webkit-outer-spin-button,
+.form-group input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.form-group input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* select styling */
+.form-group select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    padding-right: 2.25rem;
+    background-image: url("data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2020%2020'><path%20fill='%2398a0ad'%20d='M5%207l5%205%205-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 0.6rem center;
+    background-size: .9rem .9rem;
+    transition: box-shadow .12s ease, border-color .12s ease, background-color .12s ease;
+}
+.form-group select:focus{
+    border-color: var(--ep-accent);
+    box-shadow: 0 0 0 4px rgba(255,107,107,0.06);
+}
+
+/* image input */
+.image-group{
+    display:flex;
+    flex-direction:column;
+}
+.image-input{
+    display:flex;
+    gap:.6rem;
+    align-items:center;
+}
+.image-input input[type="file"]{
+    color:var(--ep-muted);
+}
+.image-preview{
+    width:84px;
+    height:84px;
+    background: rgba(255,255,255,0.02);
+    border-radius:6px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px dashed rgba(255,255,255,0.04);
+}
+.image-preview img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+.remove-checkbox{
+    font-size:.85rem;
+    color:var(--ep-muted);
+    display:flex;
+    align-items:center;
+    gap:.4rem;
+}
+
+/* actions */
+.form-actions{
+    display:flex;
+    gap:.6rem;
+    justify-content:flex-end;
+    padding-top:.5rem;
+    border-top:1px solid rgba(255,255,255,0.03);
+}
+.btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    padding:.5rem .75rem;
+    border-radius:6px;
+    border:1px solid rgba(255,255,255,0.06);
+    text-decoration:none;
+    color:var(--admin-text);
+    background:transparent;
+    cursor:pointer;
+}
+.btn-primary{
+    background:var(--ep-accent);
+    color:#fff;
+    border-color:transparent;
+}
+.btn-danger{
+    background:#e53e3e;
+    color:#fff;
+    border-color:transparent;
+}
+
+/* responsive */
+@media (max-width: 900px){
+    .cp-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .image-preview{ width:72px; height:72px; }
+}
+
+@media (max-width: 560px){
+    .edit-product{ margin: .6rem; }
+    .cp-card{ padding:.75rem; }
+    .cp-grid{
+        grid-template-columns: 1fr;
+    }
+    .form-actions{ justify-content: stretch; gap:.5rem; flex-direction:column-reverse; }
+    .form-actions .btn{ width:100%; justify-content:center; }
+}

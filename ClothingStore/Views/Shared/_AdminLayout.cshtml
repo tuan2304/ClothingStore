@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Cabin:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="~/admin/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/admin/css/asset/footer.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/admin/css/asset/header.css" asp-append-version="true" />
+
+    @RenderSection("Styles", required: false)
+
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header class="admin-header" role="banner">
+        <div class="admin-top">
+            <a class="brand" asp-controller="DashBoard" asp-action="DashBoard">
+                <span>Admin Panel</span>
+            </a>
+
+            <nav class="admin-nav" role="navigation" aria-label="Admin navigation">
+                <a asp-controller="DashBoard" asp-action="DashBoard">Dashboard</a>
+                <a asp-controller="Product" asp-action="ProductManager">Product Manager</a>
+                <a asp-controller="User" asp-action="UserManagement">User Management</a>
+            </nav>
+
+            <div class="header-actions">
+                <input class="search" type="search" placeholder="Search..." aria-label="Search admin">
+                <a>Logout</a>
+            </div>
+        </div>
+    </header>
+
+   <div class="app-container">
+        @RenderBody()
+    </div>
+
+    <footer class="admin-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div>
+                <strong>OnTop</strong> &copy; @DateTime.Now.Year. All rights reserved.
+                <div>Built for ClothingStore · Admin area</div>
+            </div>
+        </div>
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

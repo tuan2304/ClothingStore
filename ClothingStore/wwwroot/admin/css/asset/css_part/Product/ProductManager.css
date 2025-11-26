@@ -1,0 +1,207 @@
+﻿:root {
+    --pm-bg: white;
+    --pm-accent: var(--admin-accent);
+    --pm-muted: var(--muted);
+    --pm-border: rgba(255,255,255,0.04);
+    --pm-danger: #e53e3e;
+    --pm-radius: var(--radius);
+    --pm-gap: 1rem;
+    --pm-max-width: 1200px;
+}
+
+.admin-product-manager {
+    max-width: var(--pm-max-width);
+    margin: 1.5rem auto;
+    padding: 1rem;
+    background: var(--pm-bg);
+    border-radius: var(--pm-radius);
+    box-shadow: 0 2px 6px rgba(8,15,30,0.04);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color: #111827;
+}
+
+.pm-header {
+    display: flex;
+    gap: var(--pm-gap);
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+    .pm-header h1 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+.pm-controls {
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+}
+
+.pm-search input[type="search"] {
+    width: 280px;
+    padding: .5rem .75rem;
+    border: 1px solid var(--pm-border);
+    border-radius: 6px;
+    font-size: .95rem;
+    outline: none;
+    transition: box-shadow .12s ease, border-color .12s ease;
+}
+
+    .pm-search input[type="search"]:focus {
+        border-color: var(--pm-accent);
+        box-shadow: 0 0 0 3px rgba(43,108,176,0.08);
+    }
+
+.btn {
+    display: inline-block;
+    padding: .45rem .7rem;
+    border-radius: 6px;
+    text-decoration: none;
+    background: transparent;
+    border: 1px solid var(--pm-border);
+    color: #111827;
+    cursor: pointer;
+    font-size: .9rem;
+}
+
+    .btn:hover {
+        opacity: .95;
+    }
+
+.btn-primary {
+    background: var(--pm-accent);
+    color: #fff;
+    border-color: transparent;
+}
+
+.btn-sm {
+    padding: .35rem .5rem;
+    font-size: .85rem;
+    border-radius: 6px;
+}
+
+.btn-danger {
+    background: var(--pm-danger);
+    color: #fff;
+    border-color: transparent;
+}
+
+.pm-table-wrapper {
+    width: 100%;
+    overflow: auto;
+    border: 1px solid var(--pm-border);
+    border-radius: 6px;
+    background: #fff;
+}
+
+.pm-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+    .pm-table th, .pm-table td {
+        padding: .75rem .9rem;
+        text-align: right;
+        border-bottom: 1px solid #f3f4f6;
+        vertical-align: middle;
+        font-size: .95rem;
+    }
+
+    .pm-table thead th {
+        background: linear-gradient(180deg,#fbfdff,#f8fbff);
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        font-weight: 600;
+        color: var(--pm-muted);
+    }
+
+    .pm-table tbody tr:hover {
+        background: #fbfbfd;
+    }
+
+    .pm-table img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 6px;
+        display: block;
+    }
+
+    .pm-table th.col-image, .pm-table td.col-image {
+        width: 100px;
+    }
+
+    .pm-table th.col-price, .pm-table td.col-price, .pm-table th.col-stock, .pm-table td.col-discount, .pm-table th.col-discount, .pm-table td.col-discount {
+        width: 90px;
+        text-align: right;
+    }
+
+    .pm-table th.col-actions, .pm-table td.col-actions {
+        width: 150px;
+        text-align: right;
+    }
+
+.pm-pagination {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: .75rem;
+    background-color: var(--pm-bg)
+}
+
+@media (max-width: 1024px) {
+    .pm-search input[type="search"] {
+        width: 200px;
+    }
+
+    .pm-table {
+        min-width: 760px;
+    }
+}
+
+@media (max-width: 720px) {
+    .admin-product-manager {
+        margin: .75rem;
+        padding: .75rem;
+    }
+
+    .pm-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: .5rem;
+    }
+
+    .pm-controls {
+        justify-content: space-between;
+    }
+
+    .pm-table {
+        min-width: 640px;
+    }
+
+        .pm-table img {
+            width: 40px;
+            height: 40px;
+        }
+
+    .btn, .btn-sm {
+        padding: .35rem .5rem;
+        font-size: .82rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .pm-table {
+        min-width: 520px;
+    }
+
+    .pm-search input[type="search"] {
+        width: 100%;
+    }
+}

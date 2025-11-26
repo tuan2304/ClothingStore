@@ -5,43 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ClothingStore</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Cabin:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/asset/header.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/asset/footer.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <div class="header-container">
-            <a asp-controller="Home" asp-action="Index"><img class="logo-img" src="~/img/logo.webp" alt="Logo" /></a>
-                <div class="header-menu">
-                    <ul class="menu-list">
-                        <li class="list">
+        <div class="header-container"><a asp-controller="Home" asp-action="Index"><img class="logo-img" src="~/img/logo.webp" alt="Logo" /></a>
+
+            <button id="mobile-menu-toggle" class="mobile-toggle" aria-expanded="false" aria-label="Open menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+
+            <div class="header-menu">
+                <ul class="menu-list">
+                    <li class="list">
                         <a class="tag-list" asp-controller="Products" asp-action="Shirts">Áo</a>
-                        </li>
-                        <li class="list">
+                    </li>
+                    <li class="list">
                         <a class="tag-list" asp-controller="Products" asp-action="Pants">Quần</a>
-                        </li>
-                        <li class="list">
+                    </li>
+                    <li class="list">
                         <a class="tag-list" asp-controller="Products" asp-action="Accessories">Phụ Kiện</a>
-                        </li>
-                    </ul>
+                    </li>
+                </ul>
+
                 <div class="search-wrapper">
                     <span id="icon-search" class="material-symbols-outlined">search</span>
                     <input id="menu-search" class="menu-search" type="search" placeholder="Tìm kiếm sản phẩm..." name="search" value="" />
                 </div>
-                </div>
-                <div class="header-chose">
+            </div>
+
+            <div class="header-chose">
                 <a asp-controller="Cart" asp-action="Index" class="cart">
                     <span class="material-symbols-outlined">
                         shopping_cart
                     </span>
                 </a>
-                    <button class="Login"> Login</button>
-                </div>
-          
+                <button class="Login"> Login</button>
+            </div>
         </div>
+
+        <nav id="mobile-menu" class="mobile-nav" aria-hidden="true">
+            <ul class="menu-list mobile-menu-list">
+                <li class="list"><a class="tag-list" asp-controller="Products" asp-action="Shirts">Áo</a></li>
+                <li class="list"><a class="tag-list" asp-controller="Products" asp-action="Pants">Quần</a></li>
+                <li class="list"><a class="tag-list" asp-controller="Products" asp-action="Accessories">Phụ Kiện</a></li>
+            </ul>
+            <div class="search-wrapper mobile-search">
+                <span class="material-symbols-outlined">search</span>
+                <input class="menu-search" type="search" placeholder="Tìm kiếm sản phẩm..." name="search" />
+            </div>
+            <div class="mobile-actions">
+                <a asp-controller="Cart" asp-action="Index" class="cart mobile-cart">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                </a>
+                <button class="Login mobile-login">Login</button>
+            </div>
+        </nav>
     </header>
 
     <div class="app-container">
@@ -112,4 +138,3 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-    

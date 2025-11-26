@@ -1,0 +1,35 @@
+﻿:root{
+  --admin-bg: #0f1724; 
+  --admin-bg-alt: #071023; 
+  --admin-accent: #ff6b6b;
+  --admin-text: #ffffff;
+  --footer-text: #cbd5e1;
+  --muted: #98a0ad;
+  --glass: rgba(255,255,255,0.04);
+  --radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    background: linear-gradient(180deg, var(--admin-bg), #071726);
+    color: var(--admin-text);
+}
+
+.app-container {
+    flex: 1 1 auto;
+    width: 100%;
+}
+
+
+.u-hidden { display: none !important; }

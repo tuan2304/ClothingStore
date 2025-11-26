@@ -16,6 +16,13 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.MapAreaControllerRoute(
+ name: "myareas",
+ areaName: "Admin",
+ pattern: "Admin/{controller=DashBoard}/{action=DashBoard}/{id?}"
+ );
+
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

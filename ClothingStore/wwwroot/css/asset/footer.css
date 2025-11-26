@@ -1,0 +1,204 @@
+﻿footer {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    padding: var(--space-md) var(--space-sm);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--grid-gap);
+    align-items: start;
+    width: 100%;
+}
+
+.footer-col h4 {
+    margin-bottom: var(--space-sm);
+    font-size: clamp(14px,2vw,18px);
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col li {
+    margin-bottom: var(--space-xs);
+}
+
+.footer-col a {
+    color: var(--color-on-primary);
+    text-decoration: none;
+    transition: color .15s;
+}
+
+.footer-col p {
+    color: rgba(255,255,255,0.9);
+    line-height: 1.4;
+    font-size: clamp(12px, 1.6vw, 14px);
+}
+
+.footer-col a:hover {
+    color: var(--color-on-primary-hover);
+}
+
+.footer-logo {
+    max-height: 56px;
+    display: block;
+    margin-bottom: var(--space-sm);
+}
+
+.contract {
+    display: flex;
+    gap: var(--space-xs);
+    flex-direction: column;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-xs);
+    align-items: center;
+}
+
+.social {
+    margin-top: var(--space-sm);
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid var(--color-secondary);
+    color: var(--color-on-primary);
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: var(--space-md);
+    font-size: clamp(12px,2vw,14px);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: var(--space-sm);
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: calc(var(--grid-gap) / 1.5);
+    }
+
+    .footer-logo {
+        max-height: 48px;
+    }
+
+    .footer-col {
+        padding: var(--space-xs) 0;
+    }
+
+    .footer-container {
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+        text-align: center;
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
+
+    .footer-col {
+        padding: var(--space-xs) 0;
+    }
+
+    .footer-about,
+    .footer-links,
+    .footer-support,
+    .footer-contract {
+        justify-self: center;
+        align-items: center;
+    }
+
+    .footer-col ul {
+        display: inline-block;
+        text-align: left;
+    }
+
+    .contract {
+        align-items: center;
+    }
+
+    .info {
+        justify-content: center;
+    }
+
+    .social {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        font-size: 13px;
+        padding-top: var(--space-sm);
+    }
+}
+
+
+@media (min-width: 1440px) {
+    .footer-container {
+        max-width: min(1600px, calc(var(--container-max) * 1.15));
+        gap: calc(var(--grid-gap) * 1.25);
+        grid-template-columns: repeat(4, 1fr);
+        padding-left: calc(var(--space-md) * 0.5);
+        padding-right: calc(var(--space-md) * 0.5);
+    }
+
+    .footer-logo {
+        max-height: 72px;
+        margin-bottom: calc(var(--space-sm) * 1.15);
+    }
+
+    .footer-col h4 {
+        font-size: clamp(16px,1vw,20px);
+    }
+
+    .footer-col p {
+        font-size: clamp(13px,1vw,16px);
+    }
+
+    .social {
+        gap: calc(var(--space-sm) * 1.25);
+    }
+
+    .social-link {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+
+    .footer-bottom {
+        font-size: 14px;
+        padding-top: calc(var(--space-sm) * 1.15);
+    }
+}
+
+.footer-col a:focus,
+.social-link:focus {
+    outline: 2px dashed rgba(255,255,255,0.18);
+    outline-offset: 3px;
+}
