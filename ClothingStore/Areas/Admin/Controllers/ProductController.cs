@@ -1,12 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ClothingStore.Models;
 
 namespace ClothingStore.Areas.Admin.Controllers
 {
     public class ProductController : Controller
     {
+        private ClothingStoreContext context;
+        public ProductController(ClothingStoreContext context)
+        {
+            this.context = context;
+        }
         public IActionResult ProductManager()
         {
-            return View();
+            List<Product> products = context.Products.ToList();
+            return View(products);
         }
 
         [HttpGet]
