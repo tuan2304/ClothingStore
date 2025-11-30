@@ -7,15 +7,17 @@ namespace ClothingStore.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private ClothingStoreContext context;
+        public HomeController(ILogger<HomeController> logger, ClothingStoreContext context)
         {
             _logger = logger;
+            this.context = context;
         }
 
         public IActionResult Index()
         {
-            return View("Home");
+            List<Product> products = context.Products.ToList();
+            return View("Home",products);
         }
 
         public IActionResult Privacy()

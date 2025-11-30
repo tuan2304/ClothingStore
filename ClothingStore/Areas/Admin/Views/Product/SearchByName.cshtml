@@ -11,15 +11,15 @@
     <div class="pm-header">
         <h1>Product Manager</h1>
         <form method="post" asp-action="SearchByName" asp-controller="Product">
-        <div class="pm-controls">
-            <div class="pm-search">
+            <div class="pm-controls">
+                <div class="pm-search">
                     <input type="search" name="txtKeywords" placeholder="Search products..." aria-label="Search products" />
-            </div>
+                </div>
         </form>
-            <div class="pm-actions">
-                <a class="btn btn-primary" asp-controller="Product" asp-action="CreateProduct">+ Add Product</a>
-            </div>
+        <div class="pm-actions">
+            <a class="btn btn-primary" asp-controller="Product" asp-action="CreateProduct">+ Add Product</a>
         </div>
+    </div>
     </div>
 
     <section class="pm-list">
@@ -49,7 +49,7 @@
                             <td class="col-stock">@item.Stock</td>
                             <td class="col-discount">@(item.IsPromotion == true ? "Yes" : "No")</td>
                             <td class="col-actions">
-                                <a class="btn btn-sm" asp-area="admin" asp-action="EditProduct" asp-controller="Product" asp-route-id="@item.ProductId">Edit</a>
+                                <a class="btn btn-sm" asp-area="admin" asp-action="EditProduct" asp-controller="Product" asp-route-id="1">Edit</a>
                                 <a class="btn btn-sm btn-primary" asp-area="admin" asp-action="DeleteProduct" asp-controller="Product" asp-route-id="@item.ProductId">Delete</a>
                             </td>
                         </tr>
