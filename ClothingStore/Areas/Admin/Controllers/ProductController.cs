@@ -16,16 +16,56 @@ namespace ClothingStore.Areas.Admin.Controllers
             return View(products);
         }
 
-        [HttpGet]
-        public IActionResult CreateProduct(){
-            return View();
-        }
-
-
-        [HttpGet]
-        public IActionResult EditProduct()
+        [HttpPost]
+        public IActionResult SearchByName()
         {
-            return View();
+            string name = Request.Form["txtKeywords"].ToString();
+            List<Product> categories = context.Products.Where(x => x.ProductName.Contains(name)).ToList();
+            return View(categories);
         }
+        public IActionResult DeleteProduct(int id)
+        {
+            Product product = context.Products.Where(x => x.ProductId == id).FirstOrDefault();
+            context.Products.Remove(product);
+            context.SaveChanges();
+            return RedirectToAction("ProductManager");
+        }
+        [HttpGet]
+        public IActionResult CreateProduct()
+        {
+            return View(new Product());
+        }
+        [HttpPost]
+        public IActionResult CreateProduct(Product model)
+        {
+            context.Products.Add(model); context.SaveChanges();
+            return RedirectToAction("ProductManager");
+        }
+
+
+        [HttpGet]
+        public IActionResult EditProduct(int id)
+        {
+            Product p = context.Products.Where(x => x.ProductId == id).FirstOrDefault();
+            return View(p);
+        }
+
+        [HttpPost]
+        public IActionResult EditProduct(Product model)
+        {
+            Product p = context.Products.Where(x => x.ProductId == model.ProductId).FirstOrDefault();
+
+            p.ProductName = model.ProductName;
+            p.Description = model.Description;
+            p.Price = model.Price;
+            p.Stock = model.Stock;
+            p.IsPromotion = model.IsPromotion;
+            p.ImageUrl = model.ImageUrl;
+            p.CategoryName = model.CategoryName;
+            context.SaveChanges();
+
+            return RedirectToAction("ProductManager");
+        }
+
     }
 }
